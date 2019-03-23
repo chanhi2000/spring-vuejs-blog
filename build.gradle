@@ -1,0 +1,18 @@
+apply from: "dependencies.gradle"
+
+allprojects {
+    buildscript {
+        repositories {
+            mavenCentral()
+            maven { url "https://repo.spring.io/libs-snapshot" }
+        }
+        
+        dependencies {
+            classpath dep.springCP
+        }
+    }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = "$versions.gradle"
+}
